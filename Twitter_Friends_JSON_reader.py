@@ -1,15 +1,13 @@
 import json
 import requests
 from requests_oauthlib import OAuth1
-import private
+
 
 def input_data():
     screen_name = input("Enter user nickname: ")
     url = "https://api.twitter.com/1.1/friends/list.json?screen_name=" + \
           screen_name
-    # auth = OAuth1(API_KEY, API_SECRET, TOKEN_KEY, TOKEN_SECRET)
-    auth = OAuth1(private.api_key, private.api_key_secret,
-                  private.token, private.token_secret)
+    auth = OAuth1(API_KEY, API_SECRET, TOKEN_KEY, TOKEN_SECRET)
 
     req = requests.get(url, auth=auth)
 
