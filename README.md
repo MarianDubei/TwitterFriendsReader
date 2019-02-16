@@ -10,7 +10,7 @@ After launch user has to type in Twitter user's nickname without '@'. After that
 next_cursor : 1526010764370019775
 next_cursor_str : 1526010764370019775
 previous_cursor : 0
-previous_cursor_str : 0Q
+previous_cursor_str : 0
 total_count : None
 
 Enter a key to check, 'back' to return one level back or 'exit' to exit: 
