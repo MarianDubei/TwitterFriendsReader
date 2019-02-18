@@ -13,7 +13,7 @@ previous_cursor : 0
 previous_cursor_str : 0
 total_count : None
 
-Enter a key to check, 'back' to return one level back or 'exit' to exit: 
+Enter a key to check its structure, 'back' to return one level back or 'exit' to exit: 
 ```
 
 User can go to deeper levels by typing in a name of level with its own structure, which can be identified by sign ```[+]``` before it.
@@ -29,7 +29,7 @@ Object #2
 Object #3
 Object #4
 
-Enter object number to check, 'back' to return one level back or 'exit' to exit: 
+Enter object number to check its structure, 'back' to return one level back or 'exit' to exit: 
 ```
 
 If level contains not an Object, but a list of other Objects, user has to type number of Object to check its content. To go back on the structure user can type in ```back```.
