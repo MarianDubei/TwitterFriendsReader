@@ -34,7 +34,7 @@ def json_operator(json_users):
         if isinstance(eval(current_dict), list):
             for el in range(len(eval(current_dict))):
                 print("Object #" + str(el))
-            command = input("\nEnter object number to check, 'back' to return"
+            command = input("\nEnter object number to check its structure, 'back' to return"
                             " one level back or 'exit' to exit: ")
 
         elif isinstance(eval(current_dict), dict):
@@ -43,7 +43,7 @@ def json_operator(json_users):
                     print("[+]", key)
                 else:
                     print(key, ":", value)
-            command = input("\nEnter a key to check, 'back' to return one"
+            command = input("\nEnter a key to check its structure, 'back' to return one"
                             " level back or 'exit' to exit: ")
 
         if command == "exit" or ' ' in command:
