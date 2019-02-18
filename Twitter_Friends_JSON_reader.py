@@ -4,6 +4,10 @@ from requests_oauthlib import OAuth1
 
 
 def input_data():
+    """(None) -> str
+    Returns a string with JSON object, which contains information about 
+    user's friends.
+    """
     screen_name = input("Enter user nickname: ")
     url = "https://api.twitter.com/1.1/friends/list.json?screen_name=" + \
           screen_name
@@ -21,6 +25,9 @@ def input_data():
 
 
 def json_operator(json_users):
+    """(str) -> None
+    Allows user to move through levels of object structure.
+    """
     python_users = json.loads(json_users)
 
     current_dict = "python_users"
@@ -34,23 +41,25 @@ def json_operator(json_users):
         if isinstance(eval(current_dict), list):
             for el in range(len(eval(current_dict))):
                 print("Object #" + str(el))
-            command = input("\nEnter object number to check its structure, 'back' to return"
+            command = input("\nEnter object number to check, 'back' to return"
                             " one level back or 'exit' to exit: ")
 
         elif isinstance(eval(current_dict), dict):
             for key, value in eval(current_dict + ".items()"):
-                if (isinstance(value, list) and value) or isinstance(value, dict):
+                if (isinstance(value, list) and value) or\
+                        isinstance(value, dict):
                     print("[+]", key)
                 else:
                     print(key, ":", value)
-            command = input("\nEnter a key to check its structure, 'back' to return one"
+            command = input("\nEnter a key to check, 'back' to return one"
                             " level back or 'exit' to exit: ")
 
         if command == "exit" or ' ' in command:
             return
         elif command == "back":
-            current_dict = old_dict
-            current_level_str = old_level_str
+            if len(old_dict) > 1:
+                current_dict = old_dict.pop()
+                current_level_str = old_level_str.pop()
         elif (isinstance(eval(current_dict), list) and
               int(command) not in range(len(eval(current_dict)))) or\
                 (isinstance(eval(current_dict), dict) and
@@ -58,8 +67,8 @@ def json_operator(json_users):
             print("\nPlease, type correct level name or number!", '\n')
             continue
         else:
-            old_dict = current_dict
-            old_level_str = current_level_str
+            old_dict.append(current_dict)
+            old_level_str.append(current_level_str)
 
             if isinstance(eval(current_dict), list):
                 current_dict += "[" + command + "]"
